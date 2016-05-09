@@ -1,11 +1,12 @@
-<section class="jumbotron" ng-class="{'active': isActive('catalog')}" ng-show="user.Company.LogoUrl">
+<section class="jumbotron" ng-class="{'active': isActive('catalog')}" ng-if="user.Groups && user.Groups[0].InteropID == 'SalesPortal'">
     <div class="container">
-        <h2 class="thumbnail" ng-show="Four51User.isAuthenticated()">
+        <!--<h2 class="thumbnail" ng-show="Four51User.isAuthenticated()">
             <a href="catalog">
                 <img ng-src="{{user.Company.LogoUrl}}" />
             </a>
             <span>{{user.Company.Name}}</span>
             <homemessage />
-        </h2>
+        </h2>-->
+        <img class="img-responsive" alt="Welcome to Modernizing Medicine's Sales Portal" src="css/images/custom/modmedSalesBanner1.png">
     </div>
 </section>
