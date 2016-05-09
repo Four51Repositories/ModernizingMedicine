@@ -33,22 +33,36 @@
 <!--[if (gte IE 9)|!(IE)]><!-->
 <body ng-cloak ng-class="ng-cloak">
 <section>
+
     <section ng-hide="Four51User.isAuthenticated() || isAnon" class="container">
         <login />
     </section>
+
     <section ng-if="Four51User.isAuthenticated()" id="content">
+
+        <section class="hidden-print">
+            <headernavigation />
+        </section>
+
+
         <section class="hidden-print">
             <navigation />
         </section>
+
         <section class="hidden-print">
             <branding />
         </section>
+
         <section class="container-view">
             <ng-view autoscroll />
         </section>
+
         <section class="hidden-print">
             <copyright ng-if="!user.Permissions.contains('UnBrandedSite')" />
         </section>
+
+        <backtotop offsetbottom="30" offsetright="30" duration="200"></backtotop>
+
     </section>
 </section>
 
@@ -74,6 +88,11 @@
     <script src="lib/angular/plugins/ngAutocomplete.js" data-group="resources"></script>
     <script src="lib/oc/anonRouter.js" data-group="resources"></script>
     <script src="lib/oc/ordercloud-specforms.js" data-group="resources"></script>
+
+    <script src="lib/oc/headerNavigation.js" data-group="resources"></script>
+    <script src="lib/oc/backToTop.js" data-group="resources"></script>
+    <script src="lib/oc/breadcrumbs.js" data-group="resources"></script>
+    <script src="lib/oc/productListAddAllToCart.js" data-group="resources"></script>
 
     <script src="//maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 
