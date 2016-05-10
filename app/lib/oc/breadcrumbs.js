@@ -114,10 +114,11 @@ function productnav() {
     function template() {
         return [
             '<style>',
-            '.breadcrumbs {margin-left: 5px;}',
-            '.breadcrumb {margin-bottom:0px;padding:14px 15px;background-color: transparent;}',
-            '.breadcrumb a{color: #333333;}',
-            '.breadcrumbs li:last-child a{font-weight:bold;}',
+            '.breadcrumbs {padding:10px 0;}',
+            '.breadcrumb {background-color: #f0f0f0; border-radius:0;}',
+            '.breadcrumb a{color: #4e2683; padding:5px;}',
+            '.breadcrumb a:hover {background-color:#ddd; color: #000;}',
+            //'.breadcrumbs li:last-child a{font-weight:bold;}',
             '</style>',
             '<div class="breadcrumbs" ng-show="breadCookie">',
             '<ul class="breadcrumb">',
