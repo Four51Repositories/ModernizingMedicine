@@ -7,7 +7,7 @@
 Four51: Jen R
 
 ### Github URL
-* github.com/jrasmussen451/ModernizingMedicine
+* github.com/Four51Repositories/ModernizingMedicine
 
 ========
 
