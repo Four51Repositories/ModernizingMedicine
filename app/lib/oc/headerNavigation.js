@@ -77,7 +77,7 @@ function headernavigation() {
                 '</li>',
                 '</ul>',
                 '</div>',*/
-                '<div class="col-xs-12 col-md-3 pull-right">',
+                '<div class="col-xs-12 col-md-3 product-search">',
                 '<productsearchinput></productsearchinput>',
                 '</div>',
             '</div>',
