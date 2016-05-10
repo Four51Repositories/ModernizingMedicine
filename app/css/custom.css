@@ -259,6 +259,10 @@ body {
 }
 
 /*products*/
+.inline.minimal .well .thumbnail img {
+    max-height: 100%;
+}
+
 .product-detail-default .product-image-large {
     max-height: 100%;
 }
