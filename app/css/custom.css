@@ -10,7 +10,7 @@ Four51 - Jen R
 Colors:
 Purple #4E2683
 Grey #F0F0F0
-Dark Grey #DDD
+Dark Grey #DDD, #555, #999
 
 */
 
@@ -29,6 +29,12 @@ body {
     background-color: rgba(78, 38, 131, 0.5);
     border-color: rgba(78, 38, 131, 0.5);
     color: #fff;
+}
+
+.alert-warning {
+    background-color: rgba(255, 196, 35, 0.5);
+    border-color: #FFC423;
+    color: #555555;
 }
 
 .app-loading-indicator-cell {
@@ -234,28 +240,57 @@ body {
     }
 }
 
+.minicart-wrapper {
+    float:right;
+}
+
+.minicart .btn-default {
+    text-transform:uppercase;
+    font-size:0.85em;
+    font-weight:bold;
+}
+
+@media(max-width:767px) {
+    .minicart-wrapper {
+        float:none;
+    }
+}
+
 /*categories*/
 .panel-category-list .well {
     border:0;
 }
 
+.panel-category-list ul li .well {
+    min-height: 285px;
+}
+
 .panel-category-list a {
     background: #FFF;
-    height: 142px;
-    width: 142px;
+    /*height: 142px;
+    width: 142px;*/
+    height: 242px;
+    width: 242px;
     margin:0 auto;
 }
 
 .panel-category-list a figure {
     background: #4e2683;
-    height: 130px;
-    width: 130px;
+    /*height: 130px;
+    width: 130px;*/
+    height: 230px;
+    width: 230px;
     margin-top:2px;
     margin-left:2px;
 }
 
 .panel-category-list a:hover {
     background: #ddd;
+}
+
+.panel-category-list ul li a img {
+    position: relative;
+    top: 22%;
 }
 
 /*products*/
@@ -278,6 +313,7 @@ body {
     .copyright-view .copyright {
         float:none;
         text-align:center;
+        margin-bottom:100px;
     }
 }
 

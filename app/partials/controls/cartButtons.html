@@ -15,20 +15,22 @@
     </style>
     <li ng-if="continue">
         <button type="button" class="btn btn-info" redirect="catalog">
-            <small class="hidden-xs">{{'Continue Shopping' | r | xlat}}</small>
-            <small class="visible-xs">{{'Shop' | r | xlat}}</small>
+            <span class="hidden-xs">{{'Continue Shopping' | r | xlat}}</span>
+            <span class="visible-xs">{{'Shop' | r | xlat}}</span>
         </button>
     </li>
     <li>
         <button type="button" class="btn btn-danger" ng-click="currentOrder.Status == 'AwaitingApproval' ? cancelEdit() : cancelOrder()">
-            <small ng-if="currentOrder.Status != 'AwaitingApproval'">{{('Cancel' | r) + ' ' + ('Order' | r) | xlat}}</small>
-            <small ng-if="currentOrder.Status == 'AwaitingApproval'">{{('Cancel' | r) + ' ' + ('Edit' | r) | xlat}}</small>
+            <span class="hidden-xs" ng-if="currentOrder.Status != 'AwaitingApproval'">{{('Cancel' | r) + ' ' + ('Order' | r) | xlat}}</span>
+            <span class="hidden-xs" ng-if="currentOrder.Status == 'AwaitingApproval'">{{('Cancel' | r) + ' ' + ('Edit' | r) | xlat}}</span>
+            <span class="visible-xs">{{'Cancel' | r | xlat}}</span>
         </button>
     </li>
     <li>
         <button type="submit" class="btn btn-primary" ng-click="saveChanges()">
             <loadingindicator  ng-show="displayLoadingIndicator" />
-            <small>{{('Save' | r) + ' ' + ('Order' | r) | xlat}}</small>
+            <span class="hidden-xs">{{('Save' | r) + ' ' + ('Order' | r) | xlat}}</span>
+            <span class="visible-xs">{{'Save' | r | xlat}}</span>
         </button>
     </li>
     <li>

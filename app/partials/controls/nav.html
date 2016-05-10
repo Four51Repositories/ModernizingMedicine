@@ -3,7 +3,7 @@
         <section>
             <div class="container">
                 <ul class="nav navbar-nav pull-left">
-                    <li class="back animated fadeInLeft" ng-class="{'ng-hide': isActive('catalog')}">
+                    <li class="back animated fadeInLeft hidden-xs" ng-class="{'ng-hide': isActive('catalog')}">
                         <a href back-step class="back">
                             <i class="fa fa-arrow-left"></i>
                         </a>
@@ -120,11 +120,11 @@
                                     {{'Messages' | r | xlat}}
                                 </a>
                             </li>
-                            <li ng-show="user.Type == 'Customer'">
+                            <!--<li ng-show="user.Type == 'Customer'">
                                 <a id="451qa_fave_link" href="favoriteorders">
                                     {{'Favorites' | r | xlat}}
                                 </a>
-                            </li>
+                            </li>-->
                             <li ng-show="user.Permissions.contains('ViewContactUs')">
                                 <a href="contactus">
                                     {{'Contact Us' | r | xlat}}

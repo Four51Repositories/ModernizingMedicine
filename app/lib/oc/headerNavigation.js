@@ -15,7 +15,7 @@ function headernavigation() {
             '</style>',
             '<section class="header-navigation">',
             '<div class="row">',
-                '<div class="col-xs-12 col-md-3 pull-left">',
+                '<div class="col-xs-12 col-sm-4 col-md-3 pull-left">',
                 '<a ng-show="Four51User.isAuthenticated()" href="catalog">',
                 '<img src="css/images/custom/main_logo.png" />',
                 '</a>',
@@ -77,8 +77,11 @@ function headernavigation() {
                 '</li>',
                 '</ul>',
                 '</div>',*/
-                '<div class="col-xs-12 col-md-3 product-search">',
+                '<div class="col-xs-12 col-sm-4 col-md-3 product-search">',
                 '<productsearchinput></productsearchinput>',
+                '</div>',
+                '<div class="col-xs-12 col-sm-4 col-md-3 minicart-wrapper">',
+                '<minicart></minicart>',
                 '</div>',
             '</div>',
             '</section>'
