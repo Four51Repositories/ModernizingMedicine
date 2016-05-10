@@ -11,13 +11,13 @@ Four51: Jen R
 
 ========
 
-### Resources
+### Resources [ working ] 
 * http://getbootstrap.com/ 
 * https://fortawesome.github.io/Font-Awesome/
 
 ========
 
-### Best Practices
+### Best Practices [ working ] 
 * instead of removing permissions for reports in nav, add Advanced Reporting permission to groups/users
 * no need to add meta descriptions to images. Because the app is behind a login, these won't get indexed by search engines
 * overwrite existing CSS whenever possible ( will eliminate the need to use !important ) 
@@ -25,7 +25,7 @@ Four51: Jen R
 
 ========
 
-### Product Configuration
+### Product Configuration [ working ] 
 
 ======== 
 
