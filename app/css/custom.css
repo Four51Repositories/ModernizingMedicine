@@ -258,6 +258,11 @@ body {
     background: #ddd;
 }
 
+/*products*/
+.product-detail-default .product-image-large {
+    max-height: 100%;
+}
+
 /*copyright*/
 .copyright-view .copyright {
     float:right;
