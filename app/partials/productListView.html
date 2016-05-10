@@ -7,12 +7,14 @@
 
     <!--product list add all to cart-->
     <div class="row">
-        <button class="btn btn-primary pull-left" ng-click="addListToOrder()" ng-disabled="list.length < 1 || displayLoadingIndicator">
-            <loadingindicator  ng-show="displayLoadingIndicator"></loadingindicator>
-            <i ng-hide="lineItemErrors.length > 0" class="fa fa-shopping-cart"></i>
-            <i ng-show="lineItemErrors.length > 0" class="fa fa-warning"></i>
-            Add All To Cart
-        </button>
+        <div class="col-xs-12">
+            <button class="btn btn-default pull-left" ng-click="addListToOrder()" ng-disabled="list.length < 1 || displayLoadingIndicator">
+                <loadingindicator  ng-show="displayLoadingIndicator"></loadingindicator>
+                <i ng-hide="lineItemErrors.length > 0" class="fa fa-shopping-cart"></i>
+                <i ng-show="lineItemErrors.length > 0" class="fa fa-warning"></i>
+                <span>Add All To Cart</span>
+            </button>
+        </div>
     </div>
     <!--product list add all to cart-->
 

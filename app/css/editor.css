@@ -5,8 +5,8 @@
 .navbar-default .navbar-nav .open > a  {background-color: #FFF;}
 .navbar-default .navbar-nav .open > a:hover  {background-color: #F0F0F0;}
 .navbar-default .navbar-nav .open > a:focus  {background-color: #F0F0F0;}
-.navbar-nav li.dropdown li > a:hover  {background-color: #4e2683;}
-.navbar-nav li.dropdown li > a:focus  {background-color: #4e2683;}
+.navbar-nav li.dropdown li > a:hover  {background-color: #F0F0F0;}
+.navbar-nav li.dropdown li > a:focus  {background-color: #F0F0F0;}
 .navbar .container .navbar-nav li.active .fa-caret-down  {color: #F0F0F0;}
 .navbar-nav li.dropdown li > a  {color: #4e2683;}
 .navbar-nav li.dropdown li > a:hover  {color: #4e2683;}
