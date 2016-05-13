@@ -17,7 +17,7 @@ function headernavigation() {
             '<div class="row">',
                 '<div class="col-xs-12 col-sm-4 col-md-3 pull-left">',
                 '<a ng-show="Four51User.isAuthenticated()" href="catalog">',
-                '<img src="css/images/custom/main_logo.png" />',
+                '<img src="css/images/custom/main_logo.jpg" />',
                 '</a>',
                 '</div>',
                 /*'<div class="col-xs-12 col-md-8 pull-right">',
