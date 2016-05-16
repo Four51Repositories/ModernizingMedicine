@@ -18,7 +18,7 @@
             <div class="panel-body">
                 <ul>
                     <li ng-repeat="criteria in OrderSearchCriteria | filter:{Type:'Standard'}" ng-show="criteria.Count">
-                        <a ng-href="#" ng-click="OrderSearch($event,{{criteria}})">{{criteria.DisplayName | r | xlat}} <span class="badge">{{criteria.Count}}</span></a>
+                        <a class="btn btn-default" ng-href="#" ng-click="OrderSearch($event,{{criteria}})">{{criteria.DisplayName | r | xlat}} <span class="badge">{{criteria.Count}}</span></a>
                     </li>
                 </ul>
             </div>
@@ -30,7 +30,7 @@
             <div class="panel-body">
                 <ul>
                     <li ng-repeat="criteria in OrderSearchCriteria | filter:{Type:'Replenishment'}" ng-show="criteria.Count">
-                        <a ng-href="#" ng-click="OrderSearch($event,{{criteria}})">{{criteria.DisplayName | r | xlat}} <span class="badge" >{{criteria.Count}}</span></a>
+                        <a class="btn btn-default" ng-href="#" ng-click="OrderSearch($event,{{criteria}})">{{criteria.DisplayName | r | xlat}} <span class="badge" >{{criteria.Count}}</span></a>
                     </li>
                 </ul>
             </div>
@@ -42,7 +42,7 @@
             <div class="panel-body">
                 <ul>
                     <li ng-repeat="criteria in OrderSearchCriteria | filter:{Type:'PriceRequest'}" ng-show="criteria.Count">
-                        <a ng-href="#" ng-click="OrderSearch($event,{{criteria}})">{{criteria.DisplayName | r | xlat}} <span clas="badge">{{criteria.Count}}</span></a>
+                        <a class="btn btn-default" ng-href="#" ng-click="OrderSearch($event,{{criteria}})">{{criteria.DisplayName | r | xlat}} <span clas="badge">{{criteria.Count}}</span></a>
                     </li>
                 </ul>
             </div>
@@ -69,8 +69,7 @@
                         <div class="form-group">
                             <label ng-show="criteria.DateRangeFrom">{{('Start' | r) + ' ' + ('Date' | r) | xlat}}</label>
                             <div class="btn btn-default btn-block btn-date hidden-lg hidden-md"
-                                 ng-click="$event.preventDefault();$event.stopPropagation();startopened = !startopened;"
-                                 style="margin:0; height:40px; padding-top:8px;">
+                                 ng-click="$event.preventDefault();$event.stopPropagation();startopened = !startopened;">
                                 {{criteria.DateRangeFrom ? '' : 'Tap'}}
                                 <span class="text-info">{{criteria.DateRangeFrom | date:user.Culture.DateFormat.short}}</span>
                             </div>
@@ -84,8 +83,7 @@
                         <div class="form-group">
                             <label ng-show="criteria.DateRangeTo">{{('End' | r) + ' ' + ('Date' | r) | xlat}}</label>
                             <div class="btn btn-default btn-block btn-date hidden-lg hidden-md"
-                                 ng-click="$event.preventDefault();$event.stopPropagation();endopened = !endopened;"
-                                 style="margin:0; height:40px; padding-top:8px;">
+                                 ng-click="$event.preventDefault();$event.stopPropagation();endopened = !endopened;">
                                 {{criteria.DateRangeTo ? '' : 'Tap'}}
                                 <span class="text-info">{{criteria.DateRangeTo | date:user.Culture.DateFormat.short}}</span>
                             </div>
