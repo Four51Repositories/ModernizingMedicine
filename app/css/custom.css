@@ -362,6 +362,11 @@ body {
     height: 60px;
 }
 
+/*checkout*/
+.order-location a:hover {
+    text-decoration:none;
+}
+
 /*orders*/
 .btn-date {
     margin:0;
