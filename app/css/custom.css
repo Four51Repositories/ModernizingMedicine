@@ -3,7 +3,7 @@ Static file for Theme changes
 Theme name: Modernizing Medicine - Thumbprint 219
 Version: 2.0
 Created: 4/18/16
-Last Updated: 5/9/16
+Last Updated: 5/16/16
 Developers:
 Four51 - Jen R
 
@@ -324,6 +324,10 @@ body {
 
 .panel-product-list ul li a img {
     margin: 0 auto;
+}
+
+.panel-product-list ul li.inline h3 {
+    min-height: 85px;
 }
 
 .inline.minimal .well figure {
