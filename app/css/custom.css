@@ -166,10 +166,10 @@ body {
     width: 100%;
 }
 
-.navbar-nav > li > a,
+/*.navbar-nav > li > a,
 .dropdown-menu {
     font-size: 0.85em;
-}
+}*/
 
 .dropdown-menu > li > a {
     font-weight: bold;
