@@ -1,15 +1,19 @@
 four51.app.controller('SpecFormCtrl', ['$scope', '$location', '$route', '$routeParams', '$window', 'ProductDisplayService', 'Variant', 'Order',
 function ($scope, $location, $route, $routeParams, $window, ProductDisplayService, Variant, Order) {
+
     $scope.isEditforApproval = $routeParams.orderID && $scope.user.Permissions.contains('EditApprovalOrder');
     $scope.EditingLineItem = (typeof($routeParams.lineItemIndex) != 'undefined');
     if ($scope.EditingLineItem) $scope.LineItemIndex = $routeParams.lineItemIndex;
+
     if ($scope.isEditforApproval) {
         Order.get($routeParams.orderID, function(order) {
             $scope.currentOrder = order;
             init();
         });
     }
-    else {init()}
+    else {
+        init();
+    }
 
     function init() {
         $scope.variantErrors = [];
@@ -31,6 +35,7 @@ function ($scope, $location, $route, $routeParams, $window, ProductDisplayServic
                 });
             }
         });
+
         function validateVariant(){
             if(!$scope.Variant) return;
             var newErrors = [];
@@ -40,9 +45,11 @@ function ($scope, $location, $route, $routeParams, $window, ProductDisplayServic
             });
             $scope.variantErrors = newErrors;
         }
+
         $scope.$watch('Variant.Specs', function(o, n){
             validateVariant();
         }, true);
+
         function saveVariant(variant, saveNew, hideErrorAlert /*for compatibility*/) {
             if($scope.variantErrors.length){
                 $scope.showVariantErrors = true;
@@ -50,6 +57,7 @@ function ($scope, $location, $route, $routeParams, $window, ProductDisplayServic
                     $window.alert("please fill in all required fields"); //the default spec form should be made to deal with showing $scope.variantErrors, but it's likely existing spec forms may not deal with $scope.variantErrors
                 return;
             }
+
             if(saveNew) $scope.Variant.InteropID = null;
             Variant.save(variant, function(data){
                 if ($scope.isEditforApproval || $scope.EditingLineItem) {
@@ -68,13 +76,14 @@ function ($scope, $location, $route, $routeParams, $window, ProductDisplayServic
                 }
             });
         }
+
         $scope.save = function(hideErrorWindowAlert){
             saveVariant($scope.Variant, false, hideErrorWindowAlert);
-        }
+        };
 
         $scope.saveasnew = function(hideErrorAlert) {
             saveVariant($scope.Variant, true, hideErrorAlert);
-        }
+        };
 
         $scope.$on('event:imageLoaded', function(event, result) {
             $scope.loadingImage = !result;
@@ -82,7 +91,7 @@ function ($scope, $location, $route, $routeParams, $window, ProductDisplayServic
         });
     }
 
-    /*Check for the presence of the null value when there is a custom user field default value and replace it with a blank value.  Case #124640 / SPA-15424*/
+    /*Case #124640 / SPA-15424 - Check for the presence of the null value when there is a custom user field default value and replace it with a blank value*/
     $scope.$watch('Variant', function(val) {
         if (!val) return;
         angular.forEach(val.Specs, function(s){
