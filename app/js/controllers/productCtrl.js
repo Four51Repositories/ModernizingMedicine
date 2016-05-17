@@ -24,10 +24,12 @@ function ($scope, $routeParams, $route, $location, $451, Product, ProductDisplay
 			$scope.variantLineItemsOrderTotal += item.LineTotal || 0;
 		})
 	};
+
 	function setDefaultQty(lineitem) {
 		if (lineitem.PriceSchedule && lineitem.PriceSchedule.DefaultQuantity != 0)
 			$scope.LineItem.Quantity = lineitem.PriceSchedule.DefaultQuantity;
 	}
+
 	function init(searchTerm, callback) {
 		ProductDisplayService.getProductAndVariant($routeParams.productInteropID, $routeParams.variantInteropID, function (data) {
 			$scope.LineItem.Product = data.product;
@@ -42,6 +44,7 @@ function ($scope, $routeParams, $route, $location, $451, Product, ProductDisplay
 				callback();
 		}, $scope.settings.currentPage, $scope.settings.pageSize, searchTerm);
 	}
+
 	$scope.$watch('settings.currentPage', function(n, o) {
 		if (n != o || (n == 1 && o == 1))
 			init($scope.searchTerm);
@@ -70,7 +73,7 @@ function ($scope, $routeParams, $route, $location, $451, Product, ProductDisplay
 				$scope.showAddToCartErrors = true;
 			}
 		);
-	}
+	};
 
 	$scope.addToOrder = function(){
 		if($scope.lineItemErrors && $scope.lineItemErrors.length){
