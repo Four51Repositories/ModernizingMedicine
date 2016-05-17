@@ -26,12 +26,12 @@ function productlistaddalltocart() {
             '<div class="col-xs-12">',
             '<quantityfield required="true" calculated="calcVariantLineItems" lineitem="LineItem" class="quantity"/>',
             '</div>',
-            '<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">',
-            /*'<button class="btn btn-default btn-block btn-md" id="addToCart" type="submit" ng-disabled="addToOrderForm.$invalid || displayLoadingIndicator">',
+            /*'<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">',
+            '<button class="btn btn-default btn-block btn-md" id="addToCart" type="submit" ng-disabled="addToOrderForm.$invalid || displayLoadingIndicator">',
             '<loadingindicator  ng-show="displayLoadingIndicator" />',
             '<i  class="fa fa-shopping-cart fa-2x" ng-class="{\'disabled\': lineItemErrors.length > 0, \'enabled\': lineItemErrors.length == 0}"></i>',
-            '</button>',*/
-            '</div>',
+            '</button>',
+            '</div>',*/
             '</div>',
             '</div>',
             '</form>'
@@ -42,6 +42,7 @@ function productlistaddalltocart() {
 ProductListAddAllToCartCtrl.$inject = ['$scope', 'Order', 'User', '$timeout'];
 function ProductListAddAllToCartCtrl($scope, Order, User, $timeout) {
 
+
     $scope.allowAddToOrderInProductList = $scope.allowAddToOrder && $scope.LineItem.Product.Type != 'VariableText' && $scope.LineItem.Product.SpecCount == 0;
     $scope.addToOrder = function(){
         $scope.displayLoadingIndicator = true;
@@ -49,16 +50,19 @@ function ProductListAddAllToCartCtrl($scope, Order, User, $timeout) {
         $scope.errorMessage = null;
         $scope.user.CurrentOrderID ? addLineItemToCurrentOrder() : addLineItemToNewOrder();
     };
+
     var addLineItemToCurrentOrder = function(){
         Order.get($scope.user.CurrentOrderID, function(order){
             addToOrderSave(order);
         });
     };
+
     var addLineItemToNewOrder = function(){
         var currentOrder = {};
         currentOrder.LineItems = [];
         addToOrderSave(currentOrder);
     };
+
     var addToOrderSave = function(currentOrder){
         currentOrder.LineItems.push($scope.LineItem);
         Order.save(currentOrder,
@@ -81,6 +85,6 @@ function ProductListAddAllToCartCtrl($scope, Order, User, $timeout) {
                 $scope.errorMessage = ex.Message;
             }
         );
-    };
 
+    };
 }

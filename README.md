@@ -25,7 +25,7 @@ Four51: Jen R
 
 ========
 
-### Product Configuration [ working ] 
+### Product Configuration [ working ]
 
 ======== 
 
@@ -70,7 +70,7 @@ Four51: Jen R
 ========
 
 ###### HeaderNavigation ( custom )
-`lib/oc/headerNavigation.js` [ not currently in use ]
+`lib/oc/headerNavigation.js`
 
 **Instructions**
 * 
@@ -87,10 +87,24 @@ Four51: Jen R
 ========
 
 ###### Product List Add All To Cart ( custom )
-`lib/oc/headerNavigation.js` [ in development ]
+`lib/oc/productLisAddAllToCart.js`
 
 **Instructions**
-* 
+* Follow instructions under Custom Solutions Library - Product List Add To Cart
+*https://github.com/Four51Repositories/CustomSolutions/tree/master/Product%20List%20Add%20to%20Cart 
+
+####### Additional files (for add ALL to cart)
+`js/controllers/shortProductViewCtrl.js`
+*/ lines 
+
+`js/directives/product.js`
+*/ lines 
+
+`partials/productListView.html`
+* add the add all to order button/ lines 8-19, 49-60
+
+`partials/controls/shortProductViewMinimal.html`
+*/ lines 
 
 ========
 

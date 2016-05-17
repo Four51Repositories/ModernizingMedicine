@@ -39,12 +39,26 @@
             <ul>
                 <li class="inline minimal" ng-repeat="product in products | paginate:(settings.currentPage-1) * settings.pageSize | limitTo:settings.pageSize | orderBy:sorter:direction">
                     <div class="well">
-                        <shortproductviewminimal p="product" user="user" />
+                        <shortproductviewminimal list="list" p="product" user="user" />
                     </div>
                 </li>
             </ul>
         </nav>
     </div>
+
+    <!--product list add all to cart-->
+    <div class="row">
+        <div class="col-xs-12">
+            <button class="btn btn-default pull-left" ng-click="addListToOrder()" ng-disabled="list.length < 1 || displayLoadingIndicator">
+                <loadingindicator  ng-show="displayLoadingIndicator"></loadingindicator>
+                <i ng-hide="lineItemErrors.length > 0" class="fa fa-shopping-cart"></i>
+                <i ng-show="lineItemErrors.length > 0" class="fa fa-warning"></i>
+                <span>Add All To Cart</span>
+            </button>
+        </div>
+    </div>
+    <!--product list add all to cart-->
+
     <div ng-show="productCount > settings.pageSize">
         <pagination page="settings.currentPage" max-size="10" rotate="false" boundary-links="true" total-items="productCount"
             items-per-page="settings.pageSize" direction-links="true" previous-text="{{'Previous' | xlat}}" next-text="{{'Next' | xlat}}" first-text="{{'First' | xlat}}" last-text="{{'Last' | xlat}}"></pagination>

@@ -1,7 +1,8 @@
 four51.app.directive('productlistview', function() {
     var obj = {
         restrict: "E",
-        templateUrl:'partials/productListView.html'
+        templateUrl:'partials/productListView.html',
+        controller: 'productListInit'
     };
 
     return obj;
@@ -48,6 +49,7 @@ four51.app.directive('shortproductviewminimal', function() {
     var obj = {
         restrict: "E",
         scope: {
+            list: '=',
             p: '=',
             user: '='
         },
@@ -153,7 +155,7 @@ four51.app.controller('productListInit', ['$scope', 'User', 'Order', '$location'
             },
             function(ex) {
                 $scope.addToOrderIndicator = false;
-                $scope.lineItemErrors.push(ex.Detail);
+                //$scope.lineItemErrors.push(ex.Detail);
                 $scope.showAddToCartErrors = true;
                 //$route.reload();
             }
