@@ -12,6 +12,21 @@ four51.app.directive('paymentselector', function() {
 		            budgetAccountCalculation($scope.currentOrder.BudgetAccountID);
 	       });
 
+		   //check for apparel item(s) in the cart
+		   var itemFound = false;
+		   $scope.hideSpendingAccount = false;
+
+		   angular.forEach($scope.currentOrder.LineItems, function (item) {
+			   if (item.Product.StaticSpecGroups && (item.Product.StaticSpecGroups.isapparel.Specs.Item.Value == 'true' || item.Product.StaticSpecGroups.isapparel.Specs.Item.Value == 'True')) {
+				   itemFound = true;//alert("Your cart contains apparel items which cannot be combined with print or promo items.");
+			   }
+		   });
+
+		   //iif apparel item(s) hide spending account
+		   if (itemFound === true) {
+			   $scope.hideSpendingAccount = true;
+		   }
+
 	       $scope.$watch('currentOrder.PaymentMethod', function(event) {
 		       if (event == 'BudgetAccount' && $scope.SpendingAccounts) {
 			       if ($scope.SpendingAccounts.length == 1)

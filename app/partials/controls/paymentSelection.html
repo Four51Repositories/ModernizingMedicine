@@ -14,19 +14,19 @@
             {{'Approval Order' | r | xlat}}
         </button>-->
          <button class="btn btn-default" type="button"
-                 ng-show="user.Permissions.contains('SubmitForApproval') && currentOrder.Approvals"
+                 ng-show="user.Permissions.contains('SubmitForApproval') && currentOrder.Approvals && !hideSpendingAccount"
                  ng-click="currentOrder.PaymentMethod = 'Undetermined'">
              <i ng-class="{'fa fa-check': currentOrder.PaymentMethod == 'Undetermined' }"></i>
              {{'Approval Order' | r | xlat}}
          </button>
         <button class="btn btn-default" type="button"
-                ng-if="user.Permissions.contains('PayByBudgetAccount') && (SpendingAccounts|filter:{ForPurchase:true}).length > 0"
+                ng-if="user.Permissions.contains('PayByBudgetAccount') && (SpendingAccounts|filter:{ForPurchase:true}).length > 0 && !hideSpendingAccount"
                 ng-click="setBudgetAccount((SpendingAccounts|filter:{AccountType.PurchaseCredit:true}).length)">
             <i ng-class="{'fa fa-check': currentOrder.PaymentMethod == 'BudgetAccount' || currentOrder.BudgetAccountID }"></i>
             {{'Spending Account' | r | xlat}}
         </button>
         <button class="btn btn-default" type="button"
-                ng-if="user.AvailableCreditCards.length > 0 && user.Permissions.contains('PayByCreditCard')"
+                ng-if="user.AvailableCreditCards.length > 0 && user.Permissions.contains('PayByCreditCard') && !hideSpendingAccount"
                 ng-click="currentOrder.PaymentMethod = 'CreditCard'">
             <i ng-class="{'fa fa-check': currentOrder.PaymentMethod == 'CreditCard' }"></i>
             {{'Credit Card' | r | xlat}}
