@@ -1,6 +1,6 @@
 ##### Modernizing Medicine - Thumbprint219  / 18.15.0 CT / 1.5.0 SPA Release (0316)
 ##### Created: 4/18/16
-##### Last Updated: 5/9/16
+##### Last Updated: 5/17/16
 ========
 
 ##### Developers
@@ -73,7 +73,10 @@ Four51: Jen R
 `lib/oc/headerNavigation.js`
 
 **Instructions**
-* 
+* Logo / lines 18-22
+* Previous Account Nav (hidden) / lines 23-79
+* Search / lines 80-82
+* Minicart (hidden) / lines 83-85
 
 ========
 
@@ -95,16 +98,23 @@ Four51: Jen R
 
 ####### Additional files (for add ALL to cart)
 `js/controllers/shortProductViewCtrl.js`
-*/ lines 
+* set `allowAddToOrderInProductList` for quantity button to show/ line 9
+* set a watch on the quantity to set the list scope / lines 11-29
+* setting a security auth token ?? / line 31
+
+`js/controllers/productListCtrl.js`
+* `addListToOrder` functionality / lines 18-64
 
 `js/directives/product.js`
-*/ lines 
+* add a controller to the product list view/ line 5  
+* add list scope to `shortproductviewminimal` / line 52
 
 `partials/productListView.html`
 * add the add all to order button/ lines 8-19, 49-60
+* pass list to `shortproductviewminimal` / line 42
 
 `partials/controls/shortProductViewMinimal.html`
-*/ lines 
+*hide the view product button / lines 29-30
 
 ========
 
@@ -141,6 +151,15 @@ Four51: Jen R
 `js/app.js` 
 * 
 
+`js/directives/product.js`
+* add a controller to the product list view/ line 5  
+* add list scope to `shortproductviewminimal` / line 52
+* comment out the productnav for the breadcrumbs module / lines 126-138
+
 ###### HTML
 `index.html` 
 * 
+
+`partials/controls/shortProductViewMinimal.html` 
+* hide the View Product button / lines 29-30
+* add `productlistaddalltocart` / line 34

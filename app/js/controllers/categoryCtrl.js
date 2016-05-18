@@ -5,14 +5,25 @@ function ($routeParams, $sce, $scope, $451, Category, Product, Nav) {
 		currentPage: 1,
 		pageSize: 40
 	};
+
 	$scope.trusted = function(d){
 		if(d) return $sce.trustAsHtml(d);
-	}
+	};
 
 	function _search() {
 		$scope.searchLoading = true;
 		Product.search($routeParams.categoryInteropID, null, null, function (products, count) {
 			$scope.products = products;
+
+			/*product list add all to cart - show/hide the add all button*/
+			angular.forEach($scope.products,function(p){
+				if(p.SpecCount == 0 && p.Type == "Static" && p.VariantCount == 0){
+					$scope.allowAddToOrderCatalog = true;
+					return;
+				}
+			});
+			/*product list add all to cart - show/hide the add all button*/
+
 			$scope.productCount = count;
 			$scope.productLoadingIndicator = false;
 			$scope.searchLoading = false;

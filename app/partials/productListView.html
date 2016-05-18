@@ -6,9 +6,9 @@
     </div>-->
 
     <!--product list add all to cart-->
-    <div class="row">
+    <div class="row" ng-show="allowAddToOrderCatalog">
         <div class="col-xs-12">
-            <button class="btn btn-default pull-left" ng-click="addListToOrder()" ng-disabled="list.length < 1 || displayLoadingIndicator">
+            <button class="btn btn-default pull-left" ng-click="addListToOrderCheck()" ng-disabled="list.length < 1 || displayLoadingIndicator">
                 <loadingindicator  ng-show="displayLoadingIndicator"></loadingindicator>
                 <i ng-hide="lineItemErrors.length > 0" class="fa fa-shopping-cart"></i>
                 <i ng-show="lineItemErrors.length > 0" class="fa fa-warning"></i>
@@ -39,6 +39,7 @@
             <ul>
                 <li class="inline minimal" ng-repeat="product in products | paginate:(settings.currentPage-1) * settings.pageSize | limitTo:settings.pageSize | orderBy:sorter:direction">
                     <div class="well">
+                        <!--must pass list here-->
                         <shortproductviewminimal list="list" p="product" user="user" />
                     </div>
                 </li>
@@ -47,9 +48,9 @@
     </div>
 
     <!--product list add all to cart-->
-    <div class="row">
+    <div class="row" ng-show="allowAddToOrderCatalog">
         <div class="col-xs-12">
-            <button class="btn btn-default pull-left" ng-click="addListToOrder()" ng-disabled="list.length < 1 || displayLoadingIndicator">
+            <button class="btn btn-default pull-left" ng-click="addListToOrderCheck()" ng-disabled="list.length < 1 || displayLoadingIndicator">
                 <loadingindicator  ng-show="displayLoadingIndicator"></loadingindicator>
                 <i ng-hide="lineItemErrors.length > 0" class="fa fa-shopping-cart"></i>
                 <i ng-show="lineItemErrors.length > 0" class="fa fa-warning"></i>

@@ -33,5 +33,20 @@ four51.app.controller('LineItemEditCtrl', ['$scope', '$routeParams', '$location'
             }, function(ex){
                 console.log(ex);
             });
-        }
+        };
+
+        /*custom
+        $scope.$watch('LineItem.Product', function (newVal) {
+            if (!newVal) return;
+            if ($scope.LineItem.Product.StaticSpecGroups) {
+                if ($scope.LineItem.Product.StaticSpecGroups.CustomShipper.Specs['User Custom Shipper'].Value === 'True') {
+                    $scope.ProductHasCustomShipper = true;
+                }
+            }
+            $scope.allowProductToBeAdded = (($scope.CartContainsCustomShipperProduct || !$scope.currentOrder) && $scope.ProductHasCustomShipper) ||
+                (!$scope.CartContainsCustomShipperProduct && !$scope.ProductHasCustomShipper);
+        });
+
+        //console.log($scope.currentOrder)
+        /*custom*/
     }]);

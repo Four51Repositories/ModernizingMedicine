@@ -2,14 +2,15 @@ angular.module('OrderCloud-ProductListAddAllToCart', []);
 
 angular.module('OrderCloud-ProductListAddAllToCart')
     .directive('productlistaddalltocart', productlistaddalltocart)
-    .controller('ProductListAddAllToCartCtrl', ProductListAddAllToCartCtrl)
+    //.controller('ProductListAddAllToCartCtrl', ProductListAddAllToCartCtrl)
 ;
 
+/*we are using the add all functionality so the button and the form submit logic happen in the productListView.html and productListCtrl.js*/
 function productlistaddalltocart() {
     var directive = {
         restrict: 'E',
-        template: template,
-        controller: 'ProductListAddAllToCartCtrl'
+        template: template
+        //controller: 'ProductListAddAllToCartCtrl'
     };
     return directive;
 
@@ -20,7 +21,8 @@ function productlistaddalltocart() {
             '.add-to-cart .view-form-icon .col-md-4 i, .add-to-cart .view-form-icon .col-xs-6 i, .add-to-cart .view-form-icon .col-xs-9 i, .add-to-cart .view-form-icon .col-sm-4 i {left: 0;}',
             '</style>',
             '<div class="add-to-cart">',
-            '<form name="addToOrderForm" ng-submit="addToOrder()">',
+            //'<form name="addToOrderForm" ng-submit="addToOrder()">',
+            '<form name="addToOrderForm">',
             '<div class="view-form-icon" ng-show="allowAddToOrderInProductList">',
             '<div class="row">',
             '<div class="col-xs-12">',
@@ -39,6 +41,7 @@ function productlistaddalltocart() {
     }
 }
 
+/*
 ProductListAddAllToCartCtrl.$inject = ['$scope', 'Order', 'User', '$timeout'];
 function ProductListAddAllToCartCtrl($scope, Order, User, $timeout) {
 
@@ -48,7 +51,33 @@ function ProductListAddAllToCartCtrl($scope, Order, User, $timeout) {
         $scope.displayLoadingIndicator = true;
         $scope.actionMessage = null;
         $scope.errorMessage = null;
-        $scope.user.CurrentOrderID ? addLineItemToCurrentOrder() : addLineItemToNewOrder();
+        checkForApparelItems();
+        //$scope.user.CurrentOrderID ? addLineItemToCurrentOrder() : addLineItemToNewOrder();
+    };
+
+    var checkForApparelItems = function() {
+        if ($scope.currentOrder) {
+
+            if ($scope.currentOrder.LineItems) {
+                var itemFound = false;
+
+                //check for apparel item(s)
+                angular.forEach($scope.currentOrder.LineItems, function (item) {
+                    if (item.Product.StaticSpecGroups.isapparel.Specs.Item.Value == 'true' || item.Product.StaticSpecGroups.isapparel.Specs.Item.Value == 'True') {
+                        itemFound = true;
+                        alert("Your cart contains apparel items which cannot be combined with print or promo items.");
+                    }
+                });
+
+                if (itemFound === false) {
+                    addLineItemToCurrentOrder();
+                }
+            }
+        }
+
+        else {
+            addLineItemToNewOrder();
+        }
     };
 
     var addLineItemToCurrentOrder = function(){
@@ -87,4 +116,4 @@ function ProductListAddAllToCartCtrl($scope, Order, User, $timeout) {
         );
 
     };
-}
+}*/

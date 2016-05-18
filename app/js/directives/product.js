@@ -2,7 +2,7 @@ four51.app.directive('productlistview', function() {
     var obj = {
         restrict: "E",
         templateUrl:'partials/productListView.html',
-        controller: 'productListInit'
+        controller: 'ProductListCtrl' //adding the controller
     };
 
     return obj;
@@ -49,7 +49,7 @@ four51.app.directive('shortproductviewminimal', function() {
     var obj = {
         restrict: "E",
         scope: {
-            list: '=',
+            list: '=', //adding the list (consider adding to other short product views)
             p: '=',
             user: '='
         },
@@ -123,7 +123,8 @@ four51.app.directive('staticspecstable', function() {
     return obj;
 });
 
-/*four51.app.directive('productnav', function() {
+//commented out for the breadcrumbs module
+ /* four51.app.directive('productnav', function() {
 	var obj = {
 		scope: {
 			product: '=',
@@ -135,50 +136,6 @@ four51.app.directive('staticspecstable', function() {
 	};
 	return obj;
 });*/
-
-four51.app.controller('productListInit', ['$scope', 'User', 'Order', '$location', function($scope, User, Order, $location){
-    $scope.list = [];
-    $scope.addListToOrder = function(){
-        $scope.displayLoadingIndicator = true;
-        angular.forEach($scope.list, function(item){
-            addToOrder(item);
-        });
-        $scope.list = [];
-        Order.clearshipping($scope.currentOrder).
-            save($scope.currentOrder,
-            function(o){
-                $scope.user.CurrentOrderID = o.ID;
-                User.save($scope.user, function(){
-                    $scope.addToOrderIndicator = true;
-                    $location.path('/cart');
-                });
-            },
-            function(ex) {
-                $scope.addToOrderIndicator = false;
-                //$scope.lineItemErrors.push(ex.Detail);
-                $scope.showAddToCartErrors = true;
-                //$route.reload();
-            }
-        );
-    };
-
-    function addToOrder(item) {
-
-        if($scope.lineItemErrors && $scope.lineItemErrors.length){
-            $scope.showAddToCartErrors = true;
-            return;
-        }
-        if(!$scope.currentOrder){
-            $scope.currentOrder = { };
-            $scope.currentOrder.LineItems = [];
-        }
-        if (!$scope.currentOrder.LineItems)
-            $scope.currentOrder.LineItems = [];
-        $scope.currentOrder.LineItems.push(item);
-        $scope.currentOrder.Type = item.PriceSchedule.OrderType;
-        $scope.addToOrderIndicator = true;
-    }
-}]);
 
 four51.app.directive("variantlist", function() {
 	var obj = {
