@@ -152,7 +152,7 @@
                         </ul>
                     </li>
                     <li class="cart" ng-class="{'active': isActive(['cart', 'checkout'])}">
-                        <a ng-show="cartCount" class="cart" href="cart">
+                        <a ng-show="currentOrder.LineItems.length" class="cart" href="cart">
                             <i class="fa fa-shopping-cart fa-lg"></i>
                             <span ng-bind="cartCount" class="badge"></span>
                             <i class="fa fa-caret-down"></i>
