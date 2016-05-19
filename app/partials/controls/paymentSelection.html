@@ -1,5 +1,5 @@
 <div>
-    <span class="btn-group">
+   <!--<span class="btn-group">-->
         <button class="btn btn-default" type="button"
                 ng-show="user.Permissions.contains('PayByPO')"
                 ng-click="currentOrder.PaymentMethod = 'PurchaseOrder'">
@@ -36,7 +36,7 @@
                 ng-click="billaddressform = true">
             {{('New' | r) + ' ' +  ('Address' | r) | xlat}}
         </button>-->
-    </span>
+    <!--</span>-->
     <div class="view-form-icon" ng-if="user.Permissions.contains('PayByBudgetAccount')" ng-show="currentOrder.PaymentMethod == 'BudgetAccount'">
         <div ng-show="(SpendingAccounts|filter:{ForPurchase:true}).length == 1" class="alert alert-success">
             {{(selectedBudgetAccount.Label) + ' - ' + ('Balance' | xlat) + ': ' + (selectedBudgetAccount.Balance | culturecurrency)}}

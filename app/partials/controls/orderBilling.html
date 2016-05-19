@@ -11,8 +11,9 @@
             <billingmessage />
         </div>
 
-        <!--same as ship address checkbox -->
+        <!--same as ship address checkbox
         <sameasshipaddresscheckbox></sameasshipaddresscheckbox>
+        -->
 
         <div ng-show="billaddressform || (billaddresses.length == 0 && user.Permissions.contains('CreateBillToAddress'))">
             <addressinput address='billaddress' user='user'></addressinput>

@@ -22,8 +22,11 @@
                 {{'Unit of Measure' | r | xlat}}: {{LineItem.Product.UnitOfMeasure}}
             </p>
 
-            <p ng-show="LineItem.Product.DisplayInventory && inventoryDisplay(LineItem.Product, LineItem.Variant) != undefined">
+            <p class="quantity" ng-show="LineItem.Product.DisplayInventory && inventoryDisplay(LineItem.Product, LineItem.Variant) != undefined">
                 {{'Quantity Available' | r | xlat}}: {{inventoryDisplay(LineItem.Product, LineItem.Variant) }}
+            </p>
+            <p  class="quantity" ng-show="!LineItem.Product.DisplayInventory">
+                &nbsp;
             </p>
         </div>
         <!--<br/>
