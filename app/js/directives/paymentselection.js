@@ -26,6 +26,7 @@ four51.app.directive('paymentselector', function() {
 		   if (itemFound === true) {
 			   $scope.hideSpendingAccount = true;
 		   }
+		   //check for apparel item(s) in the cart
 
 	       $scope.$watch('currentOrder.PaymentMethod', function(event) {
 		       if (event == 'BudgetAccount' && $scope.SpendingAccounts) {

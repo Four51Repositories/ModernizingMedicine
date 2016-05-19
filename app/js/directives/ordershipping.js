@@ -23,10 +23,12 @@ four51.app.directive('ordershipping', ['Order', 'Shipper', 'Address', 'AddressLi
 				$scope.shipaddressform = false;
 			});
 
+			//edit inline
 			$scope.editShipAddress = function(address) {
 				$scope.shipaddressform = true;
 				$scope.shipaddress = address;
 			};
+			//edit inline
 
 			$scope.$on('event:AddressSaved', function(event, address) {
 				if (address.IsShipping) {

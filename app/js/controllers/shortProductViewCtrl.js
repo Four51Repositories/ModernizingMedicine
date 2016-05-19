@@ -29,5 +29,5 @@ four51.app.controller('shortProductViewCtrl', ['$routeParams', '$scope', 'Produc
 	});
 
 	$scope.AuthToken = Security.auth();
-		/*product list add all to cart - quantity*/
+	/*product list add all to cart - quantity*/
 }]);
