@@ -1,4 +1,4 @@
-<section>
+<section class="cart-view">
     <div ng-show="currentOrder" class="hidden-print">
         <nav class="nav">
             <ul>
@@ -85,8 +85,7 @@
                                                 <label ng-class="{required: user.Permissions.contains('DateNeededRequired')}" ng-show="item.DateNeeded || user.Permissions.contains('DateNeededRequired')">{{'Date' | r | xlat}}</label>
                                                 <!--Default Datepicker -->
                                                 <div class="btn btn-default btn-block btn-date hidden-lg hidden-md"
-                                                     ng-click="$event.preventDefault();$event.stopPropagation();opened = !opened;"
-                                                     style="margin:0; height:40px; padding-top:8px;">
+                                                     ng-click="$event.preventDefault();$event.stopPropagation();opened = !opened;">
                                                     {{item.DateNeeded ? '' : ('Tap to set a date' | xlat)}}
                                                     <span class="text-info">{{item.DateNeeded | date:user.Culture.DateFormat.short}}</span>
                                                 </div>
@@ -109,7 +108,7 @@
                                         <div class="row view-form-icon">
                                             <div class="col-xs-9">
                                                 <label class="required" ng-if="user.CostCenters.length > 1 && !user.Permissions.contains('FreeFormCostCenter')" >{{'Cost Center' | r | xlat}}</label>
-                                                <select name="costcenter" class="form-control" style="padding-left: 25px;" required
+                                                <selec class="cost-center" name="costcenter" class="form-control" required
                                                         ng-if="user.CostCenters.length > 1 && !user.Permissions.contains('FreeFormCostCenter')"
                                                         ng-options="center.Name as center.Name for center in user.CostCenters" ng-model="item.CostCenter">
                                                     <option value=""></option>

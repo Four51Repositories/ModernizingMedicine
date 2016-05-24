@@ -370,6 +370,11 @@ shortproductviewminimal .quantity {
     height: 60px;
 }
 
+/*cart*/
+.cart-view .cost-center {
+    padding-left: 25px;
+}
+
 /*checkout*/
 .order-location a:hover {
     text-decoration:none;
