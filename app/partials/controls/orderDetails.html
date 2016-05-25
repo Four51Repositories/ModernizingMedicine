@@ -42,10 +42,37 @@
             </div>
             <div ng-show="currentOrder.OrderFields">
                 <hr />
-                <div ng-repeat="field in currentOrder.OrderFields">
+                <div ng-repeat="field in currentOrder.OrderFields  | filter: { Name: '!' + 'ModMed_Delivery Date'}">
                     <customtextfield customfield="field" ng-if="field.ControlType == 'Text'" ng-required="field.IsRequired" />
                     <customselectionfield customfield="field" ng-if="field.ControlType == 'Selection'" ng-required="field.IsRequired" />
                 </div>
+
+                <!--<div ng-repeat="field in currentOrder.OrderFields  | filter: { Name: 'ModMed_Delivery Date'}">
+                    <ocdatefield customfield="field"></ocdatefield>
+                    <customdatefield customfield="field"></customdatefield>
+                </div>-->
+
+                <!--delivery date-->
+                <div class="view-form-icon">
+                    <div class="form-group">
+                        <label>If order requires exact delivery date, specify</label>
+                        <div class="btn btn-default btn-block btn-date hidden-lg hidden-md"
+                             ng-click="$event.preventDefault();$event.stopPropagation();startopened = !startopened;">
+                            {{criteria.DateRangeFrom ? '' : 'Tap'}}
+                            <span class="text-info">{{criteria.DateRangeFrom | date:user.Culture.DateFormat.short}}</span>
+                        </div>
+                        <input name="daterangefrom" placeholder="If order requires exact delivery date, specify" ng-model="currentOrder.DeliveryDate.Value"
+                               type="text"
+                               class="form-control"
+                               datepicker-popup="MM/dd/yy"
+                               is-open="startopened"
+                               min="currentDate" />
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                </div>
+                <!--delivery date-->
+
+
             </div>
         </form>
     </div>

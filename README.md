@@ -1,6 +1,6 @@
 ##### Modernizing Medicine - Thumbprint219  / 18.15.0 CT / 1.5.0 SPA Release (0316)
 ##### Created: 4/18/16
-##### Last Updated: 5/18/16
+##### Last Updated: 5/24/16
 ========
 
 ##### Developers
@@ -187,6 +187,9 @@ Four51: Jen R
 `js/controllers/categoryCtrl.js` 
 * Product List Add All To Cart - show/hide the `Add All to Order` button / lines 18-25
 
+`js/controllers/checkOutViewCtrl.js` 
+* add a scope variable for `ModMed_Delivery Date` using `getfieldbyname` filter and transform it / lines 19-38
+
 `js/controllers/lineItemEditCtrl.js` 
 * Custom shippers / lines 38-51 [ not currently in use ] 
 
@@ -212,6 +215,9 @@ Four51: Jen R
 * add a controller to the product list view/ line 5  
 * add list scope to `shortproductviewminimal` / line 52
 * comment out the productnav for the breadcrumbs module / lines 126-138
+
+`js/filters.js` 
+* add filter `getfieldbyname` / lines 82-93
 
 `js/services/navService.js` 
 * default category side nav to visible false / line 3
@@ -248,7 +254,6 @@ Four51: Jen R
 `partials/controls/customSelectionField.html` 
 * hide icons / lines 11-12
 
-
 `partials/controls/login.html` 
 * comment out OrderCloud h2 / line 7
 * add logo / line 8
@@ -261,6 +266,10 @@ Four51: Jen R
 
 `partials/controls/orderBilling.html` 
 * same as shipping checkbox [ hidden ] / lines 14-16
+
+`partials/controls/orderDetails.html` 
+* filter out the `ModMed_Delivery Date` order field from the custom order fields loop / line 45
+* date input for `ModMed_Delivery Date` / lines 50-73
 
 `partials/controls/orderShipping.html` 
 * hide the live shipping rates / lines 51-74

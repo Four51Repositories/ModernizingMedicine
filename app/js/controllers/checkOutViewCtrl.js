@@ -16,9 +16,31 @@ function ($scope, $routeParams, $location, $filter, $rootScope, $451, User, Orde
 	$scope.hasOrderConfig = OrderConfig.hasConfig($scope.currentOrder, $scope.user);
 	$scope.checkOutSection = $scope.hasOrderConfig ? 'order' : 'shipping';
 
+	/*custom order fields - Delivery Date*/
+	$scope.$watch('currentOrder.DeliveryDate.Value', function (newValue) {
+		if (!newValue) return;
+
+		//variables to format the date
+		date = newValue;
+		console.log(date);
+		//newDate = $filter('date')(date, 'EEEE, MMMM d, yyyy');
+		//console.log(newDate);
+
+		//$scope.currentOrder.OrderFields[2].Value = date;
+		// add for each in here so we dont have to target the array object like above
+		angular.forEach($scope.currentOrder.OrderFields, function(field){
+			if(field.Name === 'ModMed_Delivery Date'){
+				field.Value = date.toString();
+				console.log(field.Value);
+			}
+		});
+	});
+	/*custom order fields - Delivery Date*/
+
     function submitOrder() {
 	    $scope.displayLoadingIndicator = true;
 	    $scope.errorMessage = null;
+
         Order.submit($scope.currentOrder,
 	        function(data) {
 				if ($scope.user.Company.GoogleAnalyticsCode) {
@@ -39,7 +61,7 @@ function ($scope, $routeParams, $location, $filter, $rootScope, $451, User, Orde
 		        $scope.shippingFetchIndicator = false;
 	        }
         );
-    };
+    }
 
 	$scope.$watch('currentOrder.CostCenter', function() {
 		OrderConfig.address($scope.currentOrder, $scope.user);
@@ -69,7 +91,7 @@ function ($scope, $routeParams, $location, $filter, $rootScope, $451, User, Orde
 		        $scope.shippingFetchIndicator = false;
 	        }
         );
-    };
+    }
 
     $scope.continueShopping = function() {
 	    if (confirm('Do you want to save changes to your order before continuing?') == true)
