@@ -116,6 +116,7 @@ four51.app.directive('paymentselector', function() {
 			       case 'BudgetAccount':
 				       valid = $scope.user.Permissions.contains('PayByBudgetAccount');
 				       valid = valid ? validateAccount() : valid;
+               $scope.currentOrder.PaymentMethod = 'BudgetAccount';
 				       break;
 			       case 'CreditCard':
 				       valid = $scope.user.Permissions.contains('PayByCreditCard');
@@ -140,6 +141,11 @@ four51.app.directive('paymentselector', function() {
                $scope.currentOrder.PaymentMethod = type;
                $rootScope.$broadcast('event:paymentMethodChange', type);
            };
+
+        if($scope.user.Permissions.contains('PayByBudgetAccount'){
+          $scope.currentOrder.PaymentMethod = 'BudgetAccount';
+        }
+
 
 	       $scope.setBudgetAccount = function(count) {
 		       $scope.setPaymentMethod('BudgetAccount');
